@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint XKCornerRadius.podspec' to ensure this is a
+# Be sure to run `pod lib lint XKEmptyPlaceView.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -33,10 +33,10 @@ Pod::Spec.new do |s|
   s.source_files = 'XKEmptyPlaceView/Classes/**/*'
 
   # s.resource_bundles = {
-  #   'XKCornerRadius' => ['XKCornerRadius/Assets/*.png']
+  #   'XKEmptyPlaceView' => ['XKEmptyPlaceView/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit'
   s.dependency 'BlocksKit'
 end
