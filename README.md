@@ -1,9 +1,9 @@
-# XKCornerRadius
+# XKEmptyPlaceView
 
-[![CI Status](https://img.shields.io/travis/sy5075391/XKCornerRadius.svg?style=flat)](https://travis-ci.org/sy5075391/XKCornerRadius)
-[![Version](https://img.shields.io/cocoapods/v/XKCornerRadius.svg?style=flat)](https://cocoapods.org/pods/XKCornerRadius)
-[![License](https://img.shields.io/cocoapods/l/XKCornerRadius.svg?style=flat)](https://cocoapods.org/pods/XKCornerRadius)
-[![Platform](https://img.shields.io/cocoapods/p/XKCornerRadius.svg?style=flat)](https://cocoapods.org/pods/XKCornerRadius)
+[![CI Status](https://img.shields.io/travis/sy5075391/XKEmptyPlaceView?style=flat)](https://travis-ci.org/sy5075391/XKEmptyPlaceView)
+[![Version](https://img.shields.io/cocoapods/v/XKEmptyPlaceView?style=flat)](https://cocoapods.org/pods/XKEmptyPlaceView)
+[![License](https://img.shields.io/cocoapods/l/XKEmptyPlaceView?style=flat)](https://cocoapods.org/pods/XKEmptyPlaceView)
+[![Platform](https://img.shields.io/cocoapods/p/XKEmptyPlaceView?style=flat)](https://cocoapods.org/pods/XKEmptyPlaceView)
 
 ## Example
 
@@ -13,11 +13,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-XKCornerRadius is available through [CocoaPods](https://cocoapods.org). To install
+XKEmptyPlaceView is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'XKCornerRadius'
+pod 'XKEmptyPlaceView'
 ```
 
 ## Author
@@ -26,4 +26,4 @@ sy5075391, 447523382@qq.com
 
 ## License
 
-XKCornerRadius is available under the MIT license. See the LICENSE file for more info.
+XKEmptyPlaceView is available under the MIT license. See the LICENSE file for more info.
