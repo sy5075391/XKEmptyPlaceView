@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A39BF0921DC7A3B008E0663 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A39BF0821DC7A3B008E0663 /* BaseViewController.m */; };
+		1A39BF0E21DC882F008E0663 /* DemoViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A39BF0D21DC882F008E0663 /* DemoViewController1.m */; };
+		1A39BF1121DC88D0008E0663 /* DemoViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A39BF1021DC88D0008E0663 /* DemoViewController2.m */; };
+		1A39BF1421DC8929008E0663 /* DemoViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A39BF1321DC8929008E0663 /* DemoViewController3.m */; };
+		1A39BF1721DC89AE008E0663 /* DemoViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A39BF1621DC89AE008E0663 /* DemoViewController4.m */; };
 		1AA4385021D7533D00165982 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4384F21D7533D00165982 /* AppDelegate.m */; };
 		1AA4385321D7533D00165982 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4385221D7533D00165982 /* ViewController.m */; };
 		1AA4385621D7533D00165982 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA4385421D7533D00165982 /* Main.storyboard */; };
@@ -20,6 +25,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A39BF0721DC7A3B008E0663 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		1A39BF0821DC7A3B008E0663 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		1A39BF0C21DC882F008E0663 /* DemoViewController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController1.h; sourceTree = "<group>"; };
+		1A39BF0D21DC882F008E0663 /* DemoViewController1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController1.m; sourceTree = "<group>"; };
+		1A39BF0F21DC88D0008E0663 /* DemoViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController2.h; sourceTree = "<group>"; };
+		1A39BF1021DC88D0008E0663 /* DemoViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController2.m; sourceTree = "<group>"; };
+		1A39BF1221DC8929008E0663 /* DemoViewController3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController3.h; sourceTree = "<group>"; };
+		1A39BF1321DC8929008E0663 /* DemoViewController3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController3.m; sourceTree = "<group>"; };
+		1A39BF1521DC89AE008E0663 /* DemoViewController4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController4.h; sourceTree = "<group>"; };
+		1A39BF1621DC89AE008E0663 /* DemoViewController4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController4.m; sourceTree = "<group>"; };
 		1AA4384B21D7533D00165982 /* PodExampleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodExampleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA4384E21D7533D00165982 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1AA4384F21D7533D00165982 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -53,6 +68,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A39BF0A21DC87F1008E0663 /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				1A39BF0C21DC882F008E0663 /* DemoViewController1.h */,
+				1A39BF0D21DC882F008E0663 /* DemoViewController1.m */,
+				1A39BF0F21DC88D0008E0663 /* DemoViewController2.h */,
+				1A39BF1021DC88D0008E0663 /* DemoViewController2.m */,
+				1A39BF1221DC8929008E0663 /* DemoViewController3.h */,
+				1A39BF1321DC8929008E0663 /* DemoViewController3.m */,
+				1A39BF1521DC89AE008E0663 /* DemoViewController4.h */,
+				1A39BF1621DC89AE008E0663 /* DemoViewController4.m */,
+			);
+			path = demo;
+			sourceTree = "<group>";
+		};
 		1AA4384221D7533D00165982 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +109,9 @@
 				1AA4384F21D7533D00165982 /* AppDelegate.m */,
 				1AA4385121D7533D00165982 /* ViewController.h */,
 				1AA4385221D7533D00165982 /* ViewController.m */,
+				1A39BF0721DC7A3B008E0663 /* BaseViewController.h */,
+				1A39BF0821DC7A3B008E0663 /* BaseViewController.m */,
+				1A39BF0A21DC87F1008E0663 /* demo */,
 				1AA4385421D7533D00165982 /* Main.storyboard */,
 				1AA4385721D7533F00165982 /* Assets.xcassets */,
 				1AA4385921D7533F00165982 /* LaunchScreen.storyboard */,
@@ -251,10 +284,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA4385321D7533D00165982 /* ViewController.m in Sources */,
+				1A39BF1721DC89AE008E0663 /* DemoViewController4.m in Sources */,
 				1AA4388F21D779AE00165982 /* XKEmptyPlaceView.m in Sources */,
 				1AA4385E21D7533F00165982 /* main.m in Sources */,
+				1A39BF1421DC8929008E0663 /* DemoViewController3.m in Sources */,
 				1AA4388E21D779AE00165982 /* UIImage+Edit.m in Sources */,
 				1AA4385021D7533D00165982 /* AppDelegate.m in Sources */,
+				1A39BF0E21DC882F008E0663 /* DemoViewController1.m in Sources */,
+				1A39BF0921DC7A3B008E0663 /* BaseViewController.m in Sources */,
+				1A39BF1121DC88D0008E0663 /* DemoViewController2.m in Sources */,
 				1AA4388D21D779AE00165982 /* UIScrollView+XKEmptyDataSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
