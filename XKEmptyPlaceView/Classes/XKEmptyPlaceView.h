@@ -84,8 +84,14 @@
 
 /**是否可滑动 default: NO*/
 @property(nonatomic, assign) BOOL allowScroll;
-/**垂直方向偏移量 defualt: 0*/
+
+/**verticalOffset  topOffset  topMutiOffset 只能有一个生效  默认是居中verticalOffset = 0*/
+/**以居中的形式 垂直方向偏移量 */
 @property(nonatomic, assign) CGFloat verticalOffset;
+/**距离顶部偏移量 设0无效 */
+@property(nonatomic, assign) CGFloat topOffset;
+/**距离顶部占父视图的比例 0~1 设0无效 exp：0.2 代表顶部距离scrollView顶部，距离为scrollView的高度的1/5  */
+@property(nonatomic, assign) CGFloat topMutiOffset;
 /**视图高度间隔 defualt: 8*/
 @property(nonatomic, assign) CGFloat spaceHeight; // 统一设下面的👇
 

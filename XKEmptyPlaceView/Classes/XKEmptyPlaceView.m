@@ -81,6 +81,24 @@ alpha:alphaValue]
     }
 }
 
+- (void)setTopOffset:(CGFloat)topOffset {
+    _topOffset = topOffset;
+    _verticalOffset = 0;
+    _topMutiOffset = 0;
+}
+
+- (void)setTopMutiOffset:(CGFloat)topMutiOffset {
+    _topMutiOffset = topMutiOffset;
+    _verticalOffset = 0;
+    _topOffset = 0;
+}
+
+- (void)setVerticalOffset:(CGFloat)verticalOffset {
+    _verticalOffset = verticalOffset;
+    _topMutiOffset = 0;
+    _topOffset = 0;
+}
+
 -(UIImage *)imageResize :(UIImage*)img andResizeTo:(CGSize)newSize {
     CGFloat scale = [[UIScreen mainScreen]scale];
     
@@ -303,6 +321,14 @@ alpha:alphaValue]
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
     return self.config.verticalOffset;
+}
+
+- (CGFloat)topOffsetForEmptyDataSet:(UIScrollView *)scrollView {
+    return self.config.topOffset;
+}
+
+- (CGFloat)topOffsetMultiplierForEmptyDataSet:(UIScrollView *)scrollView {
+    return self.config.topMutiOffset;
 }
 
 - (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView {

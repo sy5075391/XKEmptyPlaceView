@@ -8,7 +8,7 @@
 //
 #import "UIScrollView+XKEmptyDataSet.h"
 #import <objc/runtime.h>
-#import <BlocksKit/BlocksKit+UIKit.h>
+#import <BlocksKit+UIKit.h>
 
 @interface UIView (XKConstraintBasedLayoutExtensions)
 
@@ -35,6 +35,8 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
 @property (nonatomic, assign) CGFloat verticalOffset;
+@property (nonatomic, assign) CGFloat topOffset;
+@property (nonatomic, assign) CGFloat topMutiOffset;
 @property (nonatomic, assign) CGFloat verticalSpace;
 @property (nonatomic, assign) CGFloat verticalImgBtmSpace;
 @property (nonatomic, assign) CGFloat verticalTitleBtmSpace;
@@ -149,7 +151,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         
         UICollectionView *collectionView = (UICollectionView *)self;
         id <UICollectionViewDataSource> dataSource = collectionView.dataSource;
-
+        
         NSInteger sections = 1;
         
         if (dataSource && [dataSource respondsToSelector:@selector(numberOfSectionsInCollectionView:)]) {
@@ -278,6 +280,27 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
     }
     return offset;
 }
+
+- (CGFloat)XK_TopOffset
+{
+    CGFloat offset = 0.0;
+    
+    if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(topOffsetForEmptyDataSet:)]) {
+        offset = [self.emptyDataSetSource topOffsetForEmptyDataSet:self];
+    }
+    return offset;
+}
+
+- (CGFloat)XK_TopOffsetMultiplier
+{
+    CGFloat offset = 0.0;
+    
+    if (self.emptyDataSetSource && [self.emptyDataSetSource respondsToSelector:@selector(topOffsetMultiplierForEmptyDataSet:)]) {
+        offset = [self.emptyDataSetSource topOffsetMultiplierForEmptyDataSet:self];
+    }
+    return offset;
+}
+
 
 - (CGFloat)XK_verticalSpace
 {
@@ -469,7 +492,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         return;
     }
     
-//    if (([self XK_shouldDisplay] && [self XK_itemsCount] == 0) || [self XK_shouldBeForcedToDisplay])
+    //    if (([self XK_shouldDisplay] && [self XK_itemsCount] == 0) || [self XK_shouldBeForcedToDisplay])
     if ([self XK_shouldDisplay] &&  [self XK_shouldBeForcedToDisplay])
     {
         // Notifies that the empty dataset view will appear
@@ -542,7 +565,7 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
                 [view.button setImage:buttonImage forState:UIControlStateNormal];
                 [view.button setImage:[self XK_buttonImageForState:UIControlStateHighlighted] forState:UIControlStateHighlighted];
             }
-             if (buttonTitle) {
+            if (buttonTitle) {
                 [view.button setAttributedTitle:[self XK_buttonTitleForState:UIControlStateNormal] forState:UIControlStateNormal];
                 [view.button setAttributedTitle:[self XK_buttonTitleForState:UIControlStateHighlighted] forState:UIControlStateHighlighted];
                 [view.button setBackgroundImage:[self XK_buttonBackgroundImageForState:UIControlStateNormal] forState:UIControlStateNormal];
@@ -551,6 +574,8 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         }
         // Configure offset
         view.verticalOffset = [self XK_verticalOffset];
+        view.topOffset = [self XK_TopOffset];
+        view.topMutiOffset = [self XK_TopOffsetMultiplier];
         
         // Configure the empty dataset view
         view.backgroundColor = [self XK_dataSetBackgroundColor];
@@ -768,7 +793,7 @@ Class XK_baseClassToSwizzleForTarget(id target)
     CGRect superviewBounds = self.superview.bounds;
     self.frame = CGRectMake(0.0, 0.0, CGRectGetWidth(superviewBounds), CGRectGetHeight(superviewBounds));
     
-    void(^fadeInBlock)(void) = ^{self->_contentView.alpha = 1.0;};
+    void(^fadeInBlock)(void) = ^{_contentView.alpha = 1.0;};
     
     if (self.fadeInOnDisplay) {
         [UIView animateWithDuration:0.25
@@ -951,17 +976,43 @@ Class XK_baseClassToSwizzleForTarget(id target)
 {
     // First, configure the content view constaints
     // The content view must alway be centered to its superview
+    
+    
+    
+    NSLayoutConstraint *yConstraint;
+    // 默认居中
+    yConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
+                                               attribute:NSLayoutAttributeCenterY
+                                               relatedBy:NSLayoutRelationEqual
+                                                  toItem:self
+                                               attribute:NSLayoutAttributeCenterY
+                                              multiplier:1.0
+                                                constant:self.verticalOffset];
+    if (self.topMutiOffset != 0) {
+        yConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
+                                                   attribute:NSLayoutAttributeTop
+                                                   relatedBy:NSLayoutRelationEqual
+                                                      toItem:self
+                                                   attribute:NSLayoutAttributeBottom
+                                                  multiplier:self.topMutiOffset
+                                                    constant:0];
+    } else if (self.topOffset != 0) {
+        yConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
+                                                   attribute:NSLayoutAttributeTop
+                                                   relatedBy:NSLayoutRelationEqual
+                                                      toItem:self
+                                                   attribute:NSLayoutAttributeTop
+                                                  multiplier:1.0
+                                                    constant:self.topOffset];
+    }
+    
     NSLayoutConstraint *centerXConstraint = [self equallyRelatedConstraintWithView:self.contentView attribute:NSLayoutAttributeCenterX];
-    NSLayoutConstraint *centerYConstraint = [self equallyRelatedConstraintWithView:self.contentView attribute:NSLayoutAttributeCenterY];
+    
     
     [self addConstraint:centerXConstraint];
-    [self addConstraint:centerYConstraint];
+    [self addConstraint:yConstraint];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|" options:0 metrics:nil views:@{@"contentView": self.contentView}]];
     
-    // When a custom offset is available, we adjust the vertical constraints' constants
-    if (self.verticalOffset != 0 && self.constraints.count > 0) {
-        centerYConstraint.constant = self.verticalOffset;
-    }
     
     // If applicable, set the custom view's constraints
     if (_customView) {
@@ -969,7 +1020,7 @@ Class XK_baseClassToSwizzleForTarget(id target)
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[customView]|" options:0 metrics:nil views:@{@"customView":_customView}]];
     }
     else {
-//        CGFloat width = CGRectGetWidth(self.frame) ? : CGRectGetWidth([UIScreen mainScreen].bounds);
+        //        CGFloat width = CGRectGetWidth(self.frame) ? : CGRectGetWidth([UIScreen mainScreen].bounds);
         CGFloat padding = 0;
         CGFloat verticalSpace = self.verticalSpace ? : 11.0; // Default is 11 pts
         
@@ -1064,17 +1115,17 @@ Class XK_baseClassToSwizzleForTarget(id target)
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
     UIView *hitView = [super hitTest:point withEvent:event];
-
+    
     // Return any UIControl instance such as buttons, segmented controls, switches, etc.
     if ([hitView isKindOfClass:[UIControl class]]) {
         return hitView;
     }
-
+    
     // Return either the contentView or customView
     if ([hitView isEqual:_contentView] || [hitView isEqual:_customView] || [hitView isEqual:self]) {
         return hitView;
     }
-
+    
     return nil;
 }
 

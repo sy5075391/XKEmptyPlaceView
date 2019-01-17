@@ -160,6 +160,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (CGFloat)desBtmSpaceHeightForEmptyDataSet:(UIScrollView *)scrollView;
 
+- (CGFloat)topOffsetMultiplierForEmptyDataSet:(UIScrollView *)scrollView;
+- (CGFloat)topOffsetForEmptyDataSet:(UIScrollView *)scrollView;
+
+
 @end
 
 
@@ -255,28 +259,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Tells the delegate that the empty data set will appear.
-
+ 
  @param scrollView A scrollView subclass informing the delegate.
  */
 - (void)emptyDataSetWillAppear:(UIScrollView *)scrollView;
 
 /**
  Tells the delegate that the empty data set did appear.
-
+ 
  @param scrollView A scrollView subclass informing the delegate.
  */
 - (void)emptyDataSetDidAppear:(UIScrollView *)scrollView;
 
 /**
  Tells the delegate that the empty data set will disappear.
-
+ 
  @param scrollView A scrollView subclass informing the delegate.
  */
 - (void)emptyDataSetWillDisappear:(UIScrollView *)scrollView;
 
 /**
  Tells the delegate that the empty data set did disappear.
-
+ 
  @param scrollView A scrollView subclass informing the delegate.
  */
 - (void)emptyDataSetDidDisappear:(UIScrollView *)scrollView;
