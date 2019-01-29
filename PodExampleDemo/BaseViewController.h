@@ -15,6 +15,7 @@
 
 #import <UIKit/UIKit.h>
 #import "XKEmptyPlaceView.h"
+#import "UIScrollView+XKEmptyConfig.h"
 
 @interface BaseViewController : UIViewController
 

@@ -12,6 +12,7 @@
 		1A39BF1121DC88D0008E0663 /* DemoViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A39BF1021DC88D0008E0663 /* DemoViewController2.m */; };
 		1A39BF1421DC8929008E0663 /* DemoViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A39BF1321DC8929008E0663 /* DemoViewController3.m */; };
 		1A39BF1721DC89AE008E0663 /* DemoViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A39BF1621DC89AE008E0663 /* DemoViewController4.m */; };
+		1A558A7421FF0D6900549EC8 /* UIScrollView+XKEmptyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A558A7321FF0D6900549EC8 /* UIScrollView+XKEmptyConfig.m */; };
 		1AA4385021D7533D00165982 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4384F21D7533D00165982 /* AppDelegate.m */; };
 		1AA4385321D7533D00165982 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4385221D7533D00165982 /* ViewController.m */; };
 		1AA4385621D7533D00165982 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA4385421D7533D00165982 /* Main.storyboard */; };
@@ -35,6 +36,8 @@
 		1A39BF1321DC8929008E0663 /* DemoViewController3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController3.m; sourceTree = "<group>"; };
 		1A39BF1521DC89AE008E0663 /* DemoViewController4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController4.h; sourceTree = "<group>"; };
 		1A39BF1621DC89AE008E0663 /* DemoViewController4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoViewController4.m; sourceTree = "<group>"; };
+		1A558A7221FF0D6900549EC8 /* UIScrollView+XKEmptyConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XKEmptyConfig.h"; sourceTree = "<group>"; };
+		1A558A7321FF0D6900549EC8 /* UIScrollView+XKEmptyConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XKEmptyConfig.m"; sourceTree = "<group>"; };
 		1AA4384B21D7533D00165982 /* PodExampleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodExampleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA4384E21D7533D00165982 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1AA4384F21D7533D00165982 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 				1AA4388721D779AE00165982 /* UIScrollView+XKEmptyDataSet.m */,
 				1AA4388A21D779AE00165982 /* XKEmptyPlaceView.h */,
 				1AA4388921D779AE00165982 /* XKEmptyPlaceView.m */,
+				1A558A7221FF0D6900549EC8 /* UIScrollView+XKEmptyConfig.h */,
+				1A558A7321FF0D6900549EC8 /* UIScrollView+XKEmptyConfig.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 			files = (
 				1AA4385321D7533D00165982 /* ViewController.m in Sources */,
 				1A39BF1721DC89AE008E0663 /* DemoViewController4.m in Sources */,
+				1A558A7421FF0D6900549EC8 /* UIScrollView+XKEmptyConfig.m in Sources */,
 				1AA4388F21D779AE00165982 /* XKEmptyPlaceView.m in Sources */,
 				1AA4385E21D7533F00165982 /* main.m in Sources */,
 				1A39BF1421DC8929008E0663 /* DemoViewController3.m in Sources */,

@@ -25,9 +25,8 @@
 #pragma mark ----------------------------- 生命周期 ------------------------------
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    _emptyView = [XKEmptyPlaceView configScrollView:self.tableView config:nil];
-    [_emptyView showWithImgName:@"暂无内容" title:@"暂无数据" des:nil tapClick:^{
+    [self.tableView configDefaultEmptyView];
+    [self.tableView.emptyPlaceView showWithImgName:@"暂无内容" title:@"暂无数据" des:nil tapClick:^{
         //
     }];
 }
