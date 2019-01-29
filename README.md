@@ -1,6 +1,15 @@
 # XKEmptyPlaceView
 
+## 1.1.0更新
+配置方法优化，emptyView绑定至scrollView。
 
+```
+ // 快捷初始化方法
+ [self.tableView configDefaultEmptyView];
+ [self.tableView.emptyPlaceView showWithImgName:@"暂无内容" title:@"暂无数据" des:nil tapClick:^{
+        //
+    }];
+```
 
 ## Example
 ![image.png](https://upload-images.jianshu.io/upload_images/1956050-5288d401ea4d2372.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
