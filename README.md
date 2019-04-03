@@ -9,7 +9,7 @@
 ```
  _emptyView = [XKEmptyPlaceView configScrollView:self.tableView config:nil];
 ```
-####使用
+#### 使用
 ```
  [_emptyView showWithImgName:@"xxx" title:@"xxx" des:nil tapClick:^{ }];
 ```
