@@ -96,8 +96,10 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         view = [XKEmptyDataSetView new];
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         view.hidden = YES;
+        __weak typeof(self) weakSelf = self;
+        __weak typeof(view) weakView = view;
         [view bk_whenTapped:^{
-            [self XK_didTapContentView:view];
+            [weakSelf XK_didTapContentView:weakView];
         }];
         view.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(XK_didTapContentView:)];
         view.tapGesture.delegate = self;
