@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XKEmptyPlaceView'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'emptyPlaceView.'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'sy5075391' => '447523382@qq.com' }
-  s.source           = { :git => 'https://github.com/sy5075391/XKEmptyPlaceView.git', :tag => "1.1.0" }
+  s.source           = { :git => 'https://github.com/sy5075391/XKEmptyPlaceView.git', :tag => "#{s.version}" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
