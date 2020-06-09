@@ -6,7 +6,6 @@ target 'PodExampleDemo' do
   # use_frameworks!
 
   # Pods for PodExampleDemo
-  pod 'BlocksKit'
   pod 'Masonry'
 	
 end

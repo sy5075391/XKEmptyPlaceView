@@ -8,7 +8,6 @@
 //
 #import "UIScrollView+XKEmptyDataSet.h"
 #import <objc/runtime.h>
-#import <BlocksKit+UIKit.h>
 
 @interface UIView (XKConstraintBasedLayoutExtensions)
 
@@ -96,11 +95,11 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         view = [XKEmptyDataSetView new];
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         view.hidden = YES;
-        __weak typeof(self) weakSelf = self;
-        __weak typeof(view) weakView = view;
-        [view bk_whenTapped:^{
-            [weakSelf XK_didTapContentView:weakView];
-        }];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap)];
+        [view addGestureRecognizer:tap];
+//        [view bk_whenTapped:^{
+//            [weakSelf XK_didTapContentView:weakView];
+//        }];
         view.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(XK_didTapContentView:)];
         view.tapGesture.delegate = self;
         [view addGestureRecognizer:view.tapGesture];
@@ -108,6 +107,10 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         [self setEmptyDataSetView:view];
     }
     return view;
+}
+
+- (void)didTap {
+    [self XK_didTapContentView:[self emptyDataSetView]];
 }
 
 - (BOOL)XK_canDisplay
